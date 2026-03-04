@@ -1,0 +1,47 @@
+body
+{
+  background-color: rgb(25,25,25);
+  color: white;
+  font-family: Arial;
+}
+.title
+{
+  font-size: 30px;
+  font-weight: bold;
+}
+.cs-moves
+{
+  height: 50px;
+}
+
+.cs-moves-button
+{
+  background-color: transparent;
+  border: 2.5px solid white;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.cs-result
+{
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+.cs-scores
+{
+  margin-top: 50px;
+}
+.css-reset,
+.css-autoPlay
+{
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 15px;
+  cursor: pointer;
+  color: black;
+}
