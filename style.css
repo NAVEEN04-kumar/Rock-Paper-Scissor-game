@@ -9,12 +9,12 @@ body
   font-size: 30px;
   font-weight: bold;
 }
-.cs-moves
+.css-moves
 {
   height: 50px;
 }
 
-.cs-moves-button
+.css-moves-button
 {
   background-color: transparent;
   border: 2.5px solid white;
@@ -24,13 +24,13 @@ body
   margin-right: 10px;
   cursor: pointer;
 }
-.cs-result
+.css-result
 {
   font-size: 25px;
   font-weight: bold;
   margin-top: 50px;
 }
-.cs-scores
+.css-scores
 {
   margin-top: 50px;
 }

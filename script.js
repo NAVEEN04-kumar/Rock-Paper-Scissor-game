@@ -1,5 +1,4 @@
-let gameSave  =  JSON.parse(localStorage.getItem('gameSave')) ||
-{
+let gameSave  =  JSON.parse(localStorage.getItem('gameSave')) || {
   Wins:0,
   Lose:0,
   Tie:0,
@@ -7,27 +6,44 @@ let gameSave  =  JSON.parse(localStorage.getItem('gameSave')) ||
   lastPlayerMove : '',
   lastComputerMove : ''
 };
-
-updateScore();
-
 let isAutoPlay = false;
 let intervalId;
 
-function autoPlay() {
+updateScore();
 
-  if(!isAutoPlay) {
-    intervalId = setInterval(function() {
-      const playerMove = computerMove();
-      playGame(playerMove);
-      },1000);
-    isAutoPlay = true;
-  }
-  else {
-    clearInterval(intervalId)
-    isAutoPlay = false;
-  }
-}
 
+document.querySelector('.js-rock-button').addEventListener('click', () => {
+  playGame('Rock');
+})
+
+document.querySelector('.js-paper-button').addEventListener('click', () => {
+  playGame('Paper');
+})
+
+document.querySelector('.js-scissors-button').addEventListener('click', () => {
+  playGame('Scissors');
+})
+
+document.querySelector('.js-reset-button').addEventListener('click', () => {
+  playGame('Reset');
+})
+
+document.querySelector('.js-autoplay-button').addEventListener('click', () => {
+  autoPlay();
+})
+
+document.body.addEventListener('keydown', (event) => {
+  
+  const key = event.key.toLowerCase();
+
+  if (key === 'r') {
+    playGame('Rock');
+  } else if (key=== 'p') {
+    playGame('Paper');
+  } else if (key === 's') {
+    playGame('Scissors');
+  }
+})
 
 function playGame(playerMove) {
   const randomMove = computerMove();
@@ -140,9 +156,24 @@ function resultMoves(result,playerMove,randomMove) {
   
   document.querySelector('.js-moves')
     .innerHTML = `You
-    <img src="images/${playerMove}-emoji.png" class="cs-moves">
-    <img src="images/${randomMove}-emoji.png" class="cs-moves">
+    <img src="images/${playerMove}-emoji.png" class="css-moves">
+    <img src="images/${randomMove}-emoji.png" class="css-moves">
     computer`;
+}
+
+function autoPlay() {
+
+  if(!isAutoPlay) {
+    intervalId = setInterval(() => {
+      const playerMove = computerMove();
+      playGame(playerMove);
+      },1000);
+    isAutoPlay = true;
+  }
+  else {
+    clearInterval(intervalId)
+    isAutoPlay = false;
+  }
 }
 
 function updateScore() {
